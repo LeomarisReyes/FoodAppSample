@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FoodAppSample.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="stlLeftStripe" TargetType="CollectionView"> 
+                <Setter Property="WidthRequest"    Value = "110"     />
+                <Setter Property="BackgroundColor" Value = "#ffebeb" /> 
+            </Style>
+
+             <Style x:Key="stlRigthStripeFrame" TargetType="Frame"> 
+                <Setter Property="Margin"          Value = "0,20"   />
+                <Setter Property="BackgroundColor" Value = "#f13b4f" />
+                <Setter Property="CornerRadius"    Value = "25"     />
+                <Setter Property="HeightRequest"   Value = "240"    />
+                <Setter Property="HasShadow"       Value = "False"  />  
+            </Style>
+
+            <Style x:Key="stlRigthStripeImg" TargetType="Image"> 
+                <Setter Property="TranslationY"    Value = "-35"     />
+                <Setter Property="TranslationX"    Value = "35"      />
+                <Setter Property="VerticalOptions" Value = "Start"    />
+                <Setter Property="HorizontalOptions" Value = "End"    />
+                <Setter Property="WidthRequest"    Value = "120"      />  
+            </Style>
+
+             <Style x:Key="stlRigthStripeTitle" TargetType="Label"> 
+                <Setter Property="FontSize"        Value = "21"       />
+                <Setter Property="TextColor"       Value = "White"    />
+                <Setter Property="FontAttributes"  Value = "Bold"     />
+                <Setter Property="Margin"          Value = "0,0,0,25" /> 
+            </Style>
+
+            <Style x:Key="stlRigthStripeDesc" TargetType="Label"> 
+                <Setter Property="FontSize"        Value = "15"       />
+                <Setter Property="TextColor"       Value = "White"    /> 
+            </Style> 
+            
+            <Style x:Key="stlRigthStripeBtn" TargetType="Button"> 
+                <Setter Property="WidthRequest"    Value = "20"    />
+                <Setter Property="HeightRequest"   Value = "20"    />
+                <Setter Property="CornerRadius"    Value = "10"    />
+                <Setter Property="BackgroundColor" Value = "White" />
+                <Setter Property="TextColor"       Value = "#f13b4f" /> 
+                <Setter Property="HorizontalOptions" Value = "End" />  
+            </Style>
+
+             <Style x:Key="stlPopularFoodFrame" TargetType="Frame">
+                <Setter Property="HeightRequest"   Value = "50"    />
+                <Setter Property="HorizontalOptions" Value = "Start" />
+                <Setter Property="HasShadow"        Value = "False"     />
+                <Setter Property="CornerRadius"     Value = "20"  />  
+            </Style>
+
+            <Style x:Key="stlPopularFoodDesc" TargetType="Label">
+                <Setter Property="FontAttributes"   Value = "Bold"    />
+                <Setter Property="Margin"           Value = "10,10,0,0"/> 
+            </Style>
+
+            <Style x:Key="stlPopularFoodDta" TargetType="Label">
+                <Setter Property="TextColor"        Value = "Silver"    />
+                <Setter Property="Margin"           Value = "10,0,0,0"/> 
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+ 

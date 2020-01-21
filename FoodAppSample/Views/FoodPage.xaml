@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodAppSample.Views.FoodPage"
+             xmlns:local = "clr-namespace:FoodAppSample"
+             xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+
+    <ContentPage.BindingContext>
+            <local:ViewModels.FoodViewModel /> 
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content> 
+        <ScrollView> 
+             <Grid RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/> 
+                </Grid.RowDefinitions>
+
+                <!--Header--> 
+                <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ffebeb">
+                     <PanCake:PancakeView CornerRadius="0,0,20,20" IsClippedToBounds="true" HeightRequest="200">
+                         <Grid BackgroundColor="#f13b4f" HorizontalOptions="FillAndExpand" Padding="25,45,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Morning" TextColor="White" FontSize="16"/>
+                                <Label Grid.Row="1" Grid.Column="0"  Text="Hi Leomaris Reyes" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="20"/>
+                                <Image Grid.Row="1" Grid.Column="1" Source="ProfileImage" HeightRequest="40" HorizontalOptions="End" Margin="0,0,15,0"/>
+                                <SearchBar Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Find a services" PlaceholderColor="{OnPlatform iOS='White', Android='#f13b4f'}" BackgroundColor="{OnPlatform iOS='Transparent', Android='White'}" HorizontalOptions="FillAndExpand" TextColor="{OnPlatform iOS='White', Android='#f13b4f'}" CancelButtonColor="White" Margin="10,0"/> 
+                            </Grid>
+                     </PanCake:PancakeView> 
+                </StackLayout>
+
+                 
+                <!--Left stripe--> 
+                 <CollectionView ItemsSource="{Binding Menu}" 
+                                 Grid.Row="1"
+                                 Grid.Column="0"
+                                 Grid.RowSpan="2"
+                                 Style="{StaticResource stlLeftStripe}" > 
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding MenuImage}" /> 
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                 </CollectionView>
+                                    
+
+                <!--Rigth stripe-->
+                <StackLayout Grid.Row="1" Grid.Column="1" Padding="27,18,27,5">
+                     <Frame Style="{StaticResource stlRigthStripeFrame}">
+                        <Grid RowSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/> 
+                            </Grid.RowDefinitions>
+
+                            <Image Grid.Row="0" Grid.Column="0" Source="VerticalLine" HeightRequest="10" TranslationY="-22"/>
+                            <Image Grid.Row="0" Grid.Column="1" Source="ProfileFood" Style="{StaticResource stlRigthStripeImg}"/>
+                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Fresh &#10;Chicken Fry&#10;$423" Style="{StaticResource stlRigthStripeTitle}"/> 
+                            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Rich in nutritional value" Style="{StaticResource stlRigthStripeDesc}"/> 
+                            <Button Grid.Row="2" Grid.Column="1" Text="+" Style="{StaticResource stlRigthStripeBtn}"/>
+                         </Grid>
+                     </Frame> 
+                 </StackLayout>
+
+             <!--Popular Foods-->
+                 <StackLayout  Margin="20,0" Grid.Row="2" Grid.Column="1" >
+                     <Label Text="Popular" FontSize="25" FontAttributes="Bold"/> 
+                     <CollectionView ItemsSource="{Binding popularFoods}" 
+                                 WidthRequest="110"
+                                 HeightRequest="90"
+                                 VerticalOptions="FillAndExpand"> 
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                     <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BackgroundColor="{Binding FrameColor}" Style="{StaticResource stlPopularFoodFrame}">
+                                        <Image Source="{Binding Image}"/>
+                                    </Frame>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Description}" Style="{x:StaticResource stlPopularFoodDesc}"/> 
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Details}" Style="{StaticResource stlPopularFoodDta}"/>  
+                                </Grid>
+                            </DataTemplate>
+                         </CollectionView.ItemTemplate>
+                     </CollectionView>
+                 </StackLayout>
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
